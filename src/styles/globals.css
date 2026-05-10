@@ -1,0 +1,212 @@
+/* ============================================
+   Dev Journal — Design Tokens
+   src/styles/globals.css
+   Import once in main.jsx
+   ============================================ */
+
+/* ── Google Fonts ── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+/* ── Root tokens (light mode) ── */
+:root {
+  /* Colors — base palette */
+  --color-bg:          #EFEDE8;   /* page background */
+  --color-surface:     #F7F6F3;   /* card / panel surface */
+  --color-surface-2:   #EDEAE4;   /* nested surface, hover bg */
+  --color-ink:         #1A1A18;   /* primary text */
+  --color-ink-2:       #6B6B68;   /* secondary / muted text */
+  --color-ink-3:       #A8A5A0;   /* placeholder, disabled */
+  --color-border:      #D9D6CF;   /* default border */
+  --color-border-2:    #C8C4BC;   /* stronger border, active */
+
+  /* Accent — indigo */
+  --color-accent:      #5B4FE8;   /* primary CTA, active state */
+  --color-accent-tint: #EAE8FD;   /* tag bg, badge bg */
+  --color-accent-text: #3C3489;   /* text on accent-tint */
+  --color-accent-hover:#4A3FD6;   /* button hover */
+
+  /* Streak — green (used ONLY in heatmap) */
+  --color-streak-high: #22C48A;   /* coded today / strong streak */
+  --color-streak-mid:  #6DDBB4;   /* moderate activity */
+  --color-streak-low:  #B8F0DC;   /* light activity */
+  --color-streak-none: #E4E1DB;   /* no activity */
+  --color-streak-text: #0F6E56;   /* text on streak-low tint */
+
+  /* Semantic */
+  --color-danger:      #E24B4A;
+  --color-danger-tint: #FCEBEB;
+
+  /* ── Typography ── */
+  --font-sans:   'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono:   'JetBrains Mono', 'Fira Code', monospace;
+
+  --text-xs:     11px;
+  --text-sm:     12px;
+  --text-base:   14px;
+  --text-md:     15px;
+  --text-lg:     16px;
+  --text-xl:     20px;
+  --text-2xl:    24px;
+
+  --weight-regular: 400;
+  --weight-medium:  500;
+  --weight-semibold:600;
+
+  --leading-tight:  1.25;
+  --leading-normal: 1.6;
+  --leading-loose:  1.75;
+
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0;
+  --tracking-wide:  0.06em;
+
+  /* ── Spacing ── */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-10: 40px;
+  --space-12: 48px;
+
+  /* ── Layout ── */
+  --sidebar-width: 240px;
+  --content-max:   720px;
+
+  /* ── Borders ── */
+  --radius-sm:  4px;
+  --radius-md:  6px;
+  --radius-lg:  10px;
+  --radius-xl:  14px;
+  --radius-full:9999px;
+
+  --border-default: 1px solid var(--color-border);
+  --border-strong:  1px solid var(--color-border-2);
+
+  /* ── Transitions ── */
+  --duration-fast:   100ms;
+  --duration-base:   150ms;
+  --duration-slow:   200ms;
+  --ease:            ease;
+
+  /* ── Shadows — zero elevation philosophy ──
+     Depth comes from border + bg contrast only.
+     These exist only for focus rings. ── */
+  --focus-ring: 0 0 0 2px var(--color-accent);
+}
+
+/* ── Dark mode overrides ── */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg:          #18181A;
+    --color-surface:     #212124;
+    --color-surface-2:   #2A2A2E;
+    --color-ink:         #F0EDE8;
+    --color-ink-2:       #9A9896;
+    --color-ink-3:       #5E5C5A;
+    --color-border:      #323230;
+    --color-border-2:    #444240;
+
+    --color-accent:      #7B72F0;
+    --color-accent-tint: #1E1C3A;
+    --color-accent-text: #AFA9EC;
+    --color-accent-hover:#9088F4;
+
+    --color-streak-high: #22C48A;
+    --color-streak-mid:  #0F6E56;
+    --color-streak-low:  #08503F;
+    --color-streak-none: #2A2A2E;
+    --color-streak-text: #6DDBB4;
+
+    --color-danger:      #F09595;
+    --color-danger-tint: #2A1818;
+  }
+}
+
+/* ============================================
+   Global resets + base styles
+   ============================================ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-normal);
+  color: var(--color-ink);
+  background-color: var(--color-bg);
+}
+
+/* ── Typography utilities ── */
+h1, h2, h3, h4 {
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--leading-tight);
+  color: var(--color-ink);
+}
+
+h1 { font-size: var(--text-2xl); }
+h2 { font-size: var(--text-xl); }
+h3 { font-size: var(--text-lg); }
+h4 { font-size: var(--text-md); font-weight: var(--weight-medium); }
+
+p {
+  line-height: var(--leading-loose);
+  color: var(--color-ink);
+}
+
+/* ── Links ── */
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: opacity var(--duration-base) var(--ease);
+}
+a:hover { opacity: 0.75; }
+
+/* ── Focus visible ── */
+:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+  border-radius: var(--radius-md);
+}
+
+/* ── Scrollbar (webkit) ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-2);
+  border-radius: var(--radius-full);
+}
+
+/* ── Selection ── */
+::selection {
+  background: var(--color-accent-tint);
+  color: var(--color-accent-text);
+}
+
+/* ── Utility: screen-reader only ── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

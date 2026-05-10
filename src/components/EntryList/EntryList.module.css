@@ -1,0 +1,27 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-12) var(--space-8);
+  text-align: center;
+}
+
+.emptyTitle {
+  font-size: var(--text-md);
+  font-weight: var(--weight-medium);
+  color: var(--color-ink);
+  margin-bottom: var(--space-2);
+}
+
+.emptySubtitle {
+  font-size: var(--text-base);
+  color: var(--color-ink-2);
+  line-height: var(--leading-loose);
+}

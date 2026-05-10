@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Base square -->
+  <rect width="200" height="200" rx="40" fill="#F7F6F3"/>
+
+  <!-- Left page shadow -->
+  <rect x="28" y="36" width="68" height="128" rx="6" fill="#EFEDE8" stroke="#D9D6CF" stroke-width="1.5"/>
+
+  <!-- Right page (front) -->
+  <rect x="42" y="28" width="116" height="140" rx="8" fill="#FAFAF8" stroke="#D9D6CF" stroke-width="1.5"/>
+
+  <!-- Spine -->
+  <line x1="96" y1="28" x2="96" y2="168" stroke="#D9D6CF" stroke-width="2"/>
+
+  <!-- Ruling lines -->
+  <line x1="106" y1="52" x2="150" y2="52" stroke="#D9D6CF" stroke-width="1.2"/>
+  <line x1="106" y1="64" x2="146" y2="64" stroke="#D9D6CF" stroke-width="1.2"/>
+
+  <!-- Code brackets < > -->
+  <path d="M112 80 L100 100 L112 120" stroke="#5B4FE8" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M132 80 L144 100 L132 120" stroke="#5B4FE8" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+
+  <!-- Heatmap streak dots -->
+  <rect x="108" y="148" width="9" height="9" rx="2" fill="#22C48A" opacity="0.4"/>
+  <rect x="120" y="148" width="9" height="9" rx="2" fill="#22C48A" opacity="0.7"/>
+  <rect x="132" y="148" width="9" height="9" rx="2" fill="#22C48A"/>
+</svg>
